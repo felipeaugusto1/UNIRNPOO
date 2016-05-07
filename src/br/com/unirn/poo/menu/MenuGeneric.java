@@ -7,6 +7,10 @@ public abstract class MenuGeneric {
 	public Scanner scanner;
 
 	public abstract void montarMenu();
+	
+	public void retornarMenuInicial() {
+		Menu.montarMenuOpcoes();
+	}
 
 	public MenuGeneric() {
 		this.scanner = new Scanner(System.in);

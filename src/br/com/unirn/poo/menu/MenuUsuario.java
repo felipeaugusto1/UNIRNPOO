@@ -1,7 +1,5 @@
 package br.com.unirn.poo.menu;
 
-import java.util.Scanner;
-
 import br.com.unirn.poo.modelo.TipoUsuario;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorUsuario;
@@ -20,10 +18,11 @@ public class MenuUsuario extends MenuGeneric {
 	public MenuUsuario() {
 		super();
 		processadorUsuario = new ProcessadorUsuario();
-		
+
 		montarMenu();
 	}
 
+	@Override
 	public void montarMenu() {
 		System.out.println("-------------------");
 
@@ -48,10 +47,13 @@ public class MenuUsuario extends MenuGeneric {
 
 		Usuario usuarioTemp = processadorUsuario.cadastrarUsuario(usuario);
 
-		if (usuarioTemp != null)
+		if (usuarioTemp != null) {
 			System.out.println("Usuário cadastrado com sucesso!");
-		else
+		} else {
 			System.out.println("Ocorreu algum erro ao realizar o cadastro.");
+		}
+		
+		super.retornarMenuInicial();
 	}
 
 	private void montarMenuTipoUsuario() {
