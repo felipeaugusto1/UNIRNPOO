@@ -19,7 +19,6 @@ public class Menu {
 		System.out.println("9 - Cadastrar Aplicativo");
 		System.out.println("10 - Cadastrar Projetor");
 		System.out.println("11 - Realizar Reserva");
-		
 		System.out.println("12 - Sair");
 
 		System.out.println("Selecione uma opção: ");
