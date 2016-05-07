@@ -2,6 +2,11 @@ package br.com.unirn.poo.menu;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * @author felipe
+ *
+ */
 public class Menu {
 
 	private static int opcao;

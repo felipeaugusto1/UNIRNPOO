@@ -1,17 +1,19 @@
 package br.com.unirn.poo.menu;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
- * Classe abastrata de controle de menus
+ * Classe abstrata de controle de menus.
  *
  */
-public abstract class MenuGeneric {
+public abstract class MenuGeneric<T> {
 
 	/**
-	 * Atributo para ler teclado do usuário.
+	 * Atributo para ler teclado do usuario.
 	 */
 	public Scanner scanner;
+	public List<T> lista;
 
 	public abstract void montarMenu();
 	

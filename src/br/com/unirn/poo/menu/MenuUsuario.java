@@ -3,8 +3,14 @@ package br.com.unirn.poo.menu;
 import br.com.unirn.poo.modelo.TipoUsuario;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorUsuario;
+import br.com.unirn.poo.singleton.ListasSingleton;
 
-public class MenuUsuario extends MenuGeneric {
+/**
+ * 
+ * @author felipe
+ *
+ */
+public class MenuUsuario extends MenuGeneric<Usuario> {
 
 	private ProcessadorUsuario processadorUsuario;
 
@@ -44,15 +50,9 @@ public class MenuUsuario extends MenuGeneric {
 		montarMenuTipoUsuario();
 
 		Usuario usuario = new Usuario(nome, cpf, telefone, login, senha, tipoUsuario);
-
-		Usuario usuarioTemp = processadorUsuario.cadastrarUsuario(usuario);
-
-		if (usuarioTemp != null) {
-			System.out.println("Usuário cadastrado com sucesso!");
-		} else {
-			System.out.println("Ocorreu algum erro ao realizar o cadastro.");
-		}
 		
+		processadorUsuario.cadastrar(usuario, ListasSingleton.getListaUsuario());
+
 		super.solicitarProximaAcao();
 	}
 

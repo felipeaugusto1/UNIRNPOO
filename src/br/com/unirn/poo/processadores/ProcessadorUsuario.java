@@ -1,26 +1,22 @@
 package br.com.unirn.poo.processadores;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import br.com.unirn.poo.modelo.Usuario;
 
-public class ProcessadorUsuario {
+public class ProcessadorUsuario extends ProcessadorGeneric<Usuario> {
 
-	private List<Usuario> listaUsuarios;
+	public ProcessadorUsuario() {}
 
-	public ProcessadorUsuario() {
-		this.listaUsuarios = new ArrayList<>();
+	@Override
+	public void cadastrar(Usuario obj, Collection<Usuario> listaDeObjetos) {
+		listaDeObjetos.add(obj);
 	}
 
-	public Usuario cadastrarUsuario(Usuario usuario) {
-		if (this.listaUsuarios.add(usuario))
-			return usuario;
-		return null;
-	}
-
-	public List<Usuario> getListaUsuarios() {
-		return listaUsuarios;
+	@Override
+	public boolean validate(Usuario obj) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

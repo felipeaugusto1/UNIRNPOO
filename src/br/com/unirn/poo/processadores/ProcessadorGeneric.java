@@ -3,7 +3,7 @@ package br.com.unirn.poo.processadores;
 import java.util.Collection;
 
 /**
- * Porcessador de qual todas as classes processadores devem exxtender.
+ * Processador de qual todas as classes processadores devem exxtender.
  * 
  * @author allan
  *
