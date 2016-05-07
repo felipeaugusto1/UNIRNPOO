@@ -8,6 +8,9 @@ import java.util.Scanner;
  */
 public abstract class MenuGeneric {
 
+	/**
+	 * Atributo para ler teclado do usuário.
+	 */
 	public Scanner scanner;
 
 	public abstract void montarMenu();
