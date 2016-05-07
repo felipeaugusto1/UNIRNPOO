@@ -7,7 +7,7 @@ public class Menu {
 	private static int opcao;
 
 	public static void montarMenuOpcoes() {
-		System.out.println("----------------------------------");
+		System.out.println("\n ---------------------------------- \n");
 		System.out.println("1 - Cadastrar Usuário");
 		System.out.println("2 - Cadastrar Professor");
 		System.out.println("3 - Cadastrar Aluno");
@@ -37,7 +37,9 @@ public class Menu {
 			new MenuUsuario();
 			scanner.close();
 			break;
-
+			
+		case 12:
+			System.exit(0);
 		default:
 			break;
 		}

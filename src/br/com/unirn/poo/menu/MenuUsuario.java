@@ -53,7 +53,7 @@ public class MenuUsuario extends MenuGeneric {
 			System.out.println("Ocorreu algum erro ao realizar o cadastro.");
 		}
 		
-		super.retornarMenuInicial();
+		super.solicitarProximaAcao();
 	}
 
 	private void montarMenuTipoUsuario() {
