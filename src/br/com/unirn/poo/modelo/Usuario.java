@@ -6,14 +6,8 @@ public class Usuario extends Pessoa {
 	private String senha;
 	private TipoUsuario tipoUsuario;
 
-	public Usuario(String login, String senha) {
-		super();
-		this.login = login;
-		this.senha = senha;
-	}
-
-	public Usuario(String login, String senha, TipoUsuario tipoUsuario) {
-		super();
+	public Usuario(String nome, String cpf, String telefone, String login, String senha, TipoUsuario tipoUsuario) {
+		super(nome, cpf, telefone);
 		this.login = login;
 		this.senha = senha;
 		this.tipoUsuario = tipoUsuario;

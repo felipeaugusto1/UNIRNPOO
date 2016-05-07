@@ -10,14 +10,9 @@ public class Main {
 
 		Scanner scanner = new Scanner(System.in);
 		
-		Menu.montarMenuOpcoes();
+		Menu menu = new Menu();
+		menu.montarMenuOpcoes();
 
-		
-		System.out.println("Informe uma opção: ");
-		int opcao = scanner.nextInt();
-		
-		System.out.println("Opcao escolhida: " +opcao);
-		
 	}
 	
 	
