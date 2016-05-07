@@ -2,6 +2,10 @@ package br.com.unirn.poo.menu;
 
 import java.util.Scanner;
 
+/**
+ * Classe abastrata de controle de menus
+ *
+ */
 public abstract class MenuGeneric {
 
 	public Scanner scanner;
