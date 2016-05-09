@@ -51,7 +51,7 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 
 		Usuario usuario = new Usuario(nome, cpf, telefone, login, senha, tipoUsuario);
 		
-		processadorUsuario.cadastrar(usuario, ListasSingleton.getListaUsuario());
+		processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
 
 		super.solicitarProximaAcao();
 	}

@@ -13,9 +13,9 @@ import br.com.unirn.poo.modelo.Usuario;
  * @author felipe
  *
  */
-public final class ListasSingleton {
+public class ListasSingleton {
 
-	private static List<Usuario> listaUsuario = new ArrayList<Usuario>();
+	private List<Usuario> listaUsuario = new ArrayList<Usuario>();
 
 	private static ListasSingleton listasSingleton = null;
 
@@ -25,7 +25,7 @@ public final class ListasSingleton {
 		return listasSingleton;
 	}
 
-	public static List<Usuario> getListaUsuario() {
+	public List<Usuario> getListaUsuario() {
 		return listaUsuario;
 	}
 

@@ -1,6 +1,9 @@
 package br.com.unirn.poo.menu;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import br.com.unirn.poo.arquivo.Arquivo;
 
 /**
  * 
@@ -43,6 +46,11 @@ public class Menu {
 			break;
 			
 		case 12:
+			try {
+				Arquivo.salvarObjetos();
+			}catch (IOException e) {
+				System.out.println(e.getMessage());
+			}			
 			System.exit(0);
 		default:
 			break;
