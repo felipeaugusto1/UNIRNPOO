@@ -1,9 +1,13 @@
 package br.com.unirn.poo.menu;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import br.com.unirn.poo.modelo.TipoUsuario;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorUsuario;
 import br.com.unirn.poo.singleton.ListasSingleton;
+import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
  * 
@@ -53,18 +57,32 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 		
 		processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
 
+		System.out.println("Usuário cadastrado com sucesso!");
+
 		super.solicitarProximaAcao();
 	}
 
+	@Override
+	public void opcaoInvalida() {
+		System.out.println("\n Opção inválida. Tente novamente. \n");
+		SistemaAcademicoUtils.esperarSegundos();
+		scanner = new Scanner(System.in);
+		montarMenuTipoUsuario();
+	}
+
 	private void montarMenuTipoUsuario() {
-		int tipoUsuarioInformado;
+		int tipoUsuarioInformado = 0;
 
 		System.out.println("Tipo do Usuario: ");
 		System.out.println("1 - Administrador");
 		System.out.println("2 - Coordenador");
 		System.out.println("3 - Secretário");
 
-		tipoUsuarioInformado = scanner.nextInt();
+		try {
+			tipoUsuarioInformado = scanner.nextInt();
+		} catch (InputMismatchException e) {
+			opcaoInvalida();
+		}
 
 		switch (tipoUsuarioInformado) {
 		case 1:
@@ -76,7 +94,9 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 		case 3:
 			tipoUsuario = TipoUsuario.SECRETARIO;
 			break;
-
+		default:
+			opcaoInvalida();
+			break;
 		}
 	}
 
