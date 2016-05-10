@@ -64,7 +64,10 @@ public class Menu {
 			new MenuUsuario();
 			scanner.close();
 			break;
-
+		case ID_MENU_CADASTRAR_PROFESSOR:
+			new MenuProfessor();
+			scanner.close();
+			break;
 		case ID_MENU_SAIR:
 			try {
 				Arquivo.salvarObjetos();

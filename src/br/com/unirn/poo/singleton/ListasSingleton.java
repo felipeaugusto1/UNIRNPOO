@@ -3,6 +3,7 @@ package br.com.unirn.poo.singleton;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.modelo.Usuario;
 
 /**
@@ -16,6 +17,7 @@ import br.com.unirn.poo.modelo.Usuario;
 public class ListasSingleton {
 
 	private List<Usuario> listaUsuario = new ArrayList<Usuario>();
+	private List<Professor> listaProfessor = new ArrayList<Professor>();
 
 	private static ListasSingleton listasSingleton = null;
 
@@ -27,6 +29,10 @@ public class ListasSingleton {
 
 	public List<Usuario> getListaUsuario() {
 		return listaUsuario;
+	}
+
+	public List<Professor> getListaProfessor() {
+		return listaProfessor;
 	}
 
 }

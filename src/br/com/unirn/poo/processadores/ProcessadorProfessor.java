@@ -4,18 +4,17 @@ import java.util.Collection;
 
 import br.com.unirn.poo.modelo.Professor;
 
-public class ProcessadorProfessor extends ProcessadorGeneric<Professor>{
+public class ProcessadorProfessor extends ProcessadorGeneric<Professor> {
 
 	@Override
 	public void cadastrar(Professor obj, Collection<Professor> listaDeObjetos) {
-		// TODO Auto-generated method stub
-		
+		listaDeObjetos.add(obj);
 	}
 
 	@Override
 	public boolean validate(Professor obj) {
-		// TODO Auto-generated method stub
-		return false;
+		return (!obj.getCpf().isEmpty() && !obj.getMatricula().isEmpty() && !obj.getNome().isEmpty()
+				&& !obj.getTelefone().isEmpty());
 	}
 
 }

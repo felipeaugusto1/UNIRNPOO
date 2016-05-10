@@ -16,8 +16,8 @@ public class ProcessadorUsuario extends ProcessadorGeneric<Usuario> {
 
 	@Override
 	public boolean validate(Usuario obj) {
-		return (obj.getCpf().isEmpty() && obj.getLogin().isEmpty() && obj.getLogin().isEmpty()
-				&& obj.getNome().isEmpty() && obj.getSenha().isEmpty() && obj.getTelefone().isEmpty());
+		return (!obj.getCpf().isEmpty() && !obj.getLogin().isEmpty() && !obj.getLogin().isEmpty()
+				&& !obj.getNome().isEmpty() && !obj.getSenha().isEmpty() && !obj.getTelefone().isEmpty());
 	}
 
 }
