@@ -6,7 +6,8 @@ import br.com.unirn.poo.modelo.Usuario;
 
 public class ProcessadorUsuario extends ProcessadorGeneric<Usuario> {
 
-	public ProcessadorUsuario() {}
+	public ProcessadorUsuario() {
+	}
 
 	@Override
 	public void cadastrar(Usuario obj, Collection<Usuario> listaDeObjetos) {
@@ -15,8 +16,8 @@ public class ProcessadorUsuario extends ProcessadorGeneric<Usuario> {
 
 	@Override
 	public boolean validate(Usuario obj) {
-		// TODO Auto-generated method stub
-		return false;
+		return (obj.getCpf().isEmpty() && obj.getLogin().isEmpty() && obj.getLogin().isEmpty()
+				&& obj.getNome().isEmpty() && obj.getSenha().isEmpty() && obj.getTelefone().isEmpty());
 	}
 
 }

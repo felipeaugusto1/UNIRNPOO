@@ -55,11 +55,19 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 
 		Usuario usuario = new Usuario(nome, cpf, telefone, login, senha, tipoUsuario);
 		
-		processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
+		if (processadorUsuario.validate(usuario)) {
+			processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
+			
+			System.out.println("Usuário cadastrado com sucesso!");
 
-		System.out.println("Usuário cadastrado com sucesso!");
-
-		super.solicitarProximaAcao();
+			super.solicitarProximaAcao();
+		}
+		else {
+			System.out.println("Informe todos os dados do usuário.");
+			scanner = new Scanner(System.in);
+			montarMenu();
+		}
+		
 	}
 
 	@Override
