@@ -1,10 +1,8 @@
 package br.com.unirn.poo.menu;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import br.com.unirn.poo.arquivo.Arquivo;
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
@@ -69,14 +67,7 @@ public class Menu {
 			scanner.close();
 			break;
 		case ID_MENU_SAIR:
-			try {
-				Arquivo.salvarObjetos();
-			} catch (IOException e) {
-				System.out.println(e.getMessage());
-			}
-
-			System.out.println("Volte sempre!");
-			System.exit(0);
+			SistemaAcademicoUtils.sairAplicacao();
 		default:
 			opcaoInvalida();
 			break;

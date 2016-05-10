@@ -43,8 +43,7 @@ public abstract class MenuGeneric<T> {
 			retornarMenuInicial();
 			break;
 		case 2:
-			System.out.println("Volte sempre!");
-			System.exit(0);
+			SistemaAcademicoUtils.sairAplicacao();
 		default:
 			System.out.println("\n Opção inválida. Tente novamente. \n" );
 			SistemaAcademicoUtils.esperarSegundos();
