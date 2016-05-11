@@ -2,6 +2,7 @@ package br.com.unirn.poo.menu;
 
 import java.util.Scanner;
 
+import br.com.unirn.poo.expcetions.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Aluno;
 import br.com.unirn.poo.processadores.ProcessadorAluno;
 import br.com.unirn.poo.singleton.ListasSingleton;
@@ -35,7 +36,7 @@ public class MenuAluno extends MenuGeneric<Aluno> {
 		System.out.println("Informe o nome do aluno: ");
 		nome = scanner.nextLine();
 
-		System.out.println("Informe o CPF do aluno: ");
+		System.out.println("Informe o CPF do aluno (sem caracteres especiais): ");
 		cpf = scanner.nextLine();
 
 		System.out.println("Informe o telefone do aluno: ");
@@ -49,14 +50,20 @@ public class MenuAluno extends MenuGeneric<Aluno> {
 
 		Aluno aluno = new Aluno(nome, cpf, telefone, matricula, curso);
 
-		if (processadorAluno.validate(aluno)) {
-			processadorAluno.cadastrar(aluno, ListasSingleton.getInstance().getListaAluno());
+		try {
+			if (processadorAluno.validate(aluno)) {
+				processadorAluno.cadastrar(aluno, ListasSingleton.getInstance().getListaAluno());
 
-			System.out.println("Aluno cadastrado com sucesso!");
+				System.out.println("Aluno cadastrado com sucesso!");
 
-			super.solicitarProximaAcao();
-		} else {
-			System.out.println("Informe todos os dados do aluno.");
+				super.solicitarProximaAcao();
+			} else {
+				System.out.println("Informe todos os dados do aluno.");
+				scanner = new Scanner(System.in);
+				montarMenu();
+			}
+		} catch (CPFInvalidoException e) {
+			System.out.println(e.getMessage());
 			scanner = new Scanner(System.in);
 			montarMenu();
 		}

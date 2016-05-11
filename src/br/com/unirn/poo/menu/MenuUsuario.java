@@ -3,6 +3,7 @@ package br.com.unirn.poo.menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import br.com.unirn.poo.expcetions.CPFInvalidoException;
 import br.com.unirn.poo.modelo.TipoUsuario;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorUsuario;
@@ -39,7 +40,7 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 		System.out.println("Informe o nome do usuario: ");
 		nome = scanner.nextLine();
 
-		System.out.println("Informe o CPF do usuario: ");
+		System.out.println("Informe o CPF do usuario (sem caracteres especiais): ");
 		cpf = scanner.nextLine();
 
 		System.out.println("Informe o telefone do usuario: ");
@@ -55,15 +56,21 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 
 		Usuario usuario = new Usuario(nome, cpf, telefone, login, senha, tipoUsuario);
 		
-		if (processadorUsuario.validate(usuario)) {
-			processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
-			
-			System.out.println("Usuário cadastrado com sucesso!");
+		try {
+			if (processadorUsuario.validate(usuario)) {
+				processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
+				
+				System.out.println("Usuário cadastrado com sucesso!");
 
-			super.solicitarProximaAcao();
-		}
-		else {
-			System.out.println("Informe todos os dados do usuário.");
+				super.solicitarProximaAcao();
+			}
+			else {
+				System.out.println("Informe todos os dados do usuário.");
+				scanner = new Scanner(System.in);
+				montarMenu();
+			}
+		} catch (CPFInvalidoException e) {
+			System.out.println(e.getMessage());
 			scanner = new Scanner(System.in);
 			montarMenu();
 		}

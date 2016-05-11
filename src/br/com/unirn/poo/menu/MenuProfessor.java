@@ -2,6 +2,7 @@ package br.com.unirn.poo.menu;
 
 import java.util.Scanner;
 
+import br.com.unirn.poo.expcetions.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorProfessor;
@@ -35,7 +36,7 @@ public class MenuProfessor extends MenuGeneric<Usuario> {
 		System.out.println("Informe o nome do professor: ");
 		nome = scanner.nextLine();
 
-		System.out.println("Informe o CPF do professor: ");
+		System.out.println("Informe o CPF do professor (sem caracteres especiais): ");
 		cpf = scanner.nextLine();
 
 		System.out.println("Informe o telefone do professor: ");
@@ -46,14 +47,20 @@ public class MenuProfessor extends MenuGeneric<Usuario> {
 
 		Professor professor = new Professor(nome, cpf, telefone, matricula);
 
-		if (processadorProfessor.validate(professor)) {
-			processadorProfessor.cadastrar(professor, ListasSingleton.getInstance().getListaProfessor());
+		try {
+			if (processadorProfessor.validate(professor)) {
+				processadorProfessor.cadastrar(professor, ListasSingleton.getInstance().getListaProfessor());
 
-			System.out.println("Professor cadastrado com sucesso!");
+				System.out.println("Professor cadastrado com sucesso!");
 
-			super.solicitarProximaAcao();
-		} else {
-			System.out.println("Informe todos os dados do professor.");
+				super.solicitarProximaAcao();
+			} else {
+				System.out.println("Informe todos os dados do professor.");
+				scanner = new Scanner(System.in);
+				montarMenu();
+			}
+		} catch (CPFInvalidoException e) {
+			System.out.println(e.getMessage());
 			scanner = new Scanner(System.in);
 			montarMenu();
 		}

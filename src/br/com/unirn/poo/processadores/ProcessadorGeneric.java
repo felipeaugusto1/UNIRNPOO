@@ -13,6 +13,6 @@ public  abstract class ProcessadorGeneric<T> {
 	
 	public abstract void cadastrar (T obj, Collection<T> listaDeObjetos);
 	
-	public abstract  boolean validate(T obj);
+	public abstract boolean validate(T obj) throws Exception;
 	
 }
