@@ -66,6 +66,10 @@ public class Menu {
 			new MenuProfessor();
 			scanner.close();
 			break;
+		case ID_MENU_CADASTRAR_ALUNO:
+			new MenuAluno();
+			scanner.close();
+			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();
 		default:
