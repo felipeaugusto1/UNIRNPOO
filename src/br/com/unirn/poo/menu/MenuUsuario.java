@@ -3,7 +3,7 @@ package br.com.unirn.poo.menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import br.com.unirn.poo.expcetions.CPFInvalidoException;
+import br.com.unirn.poo.excecoes.CPFInvalidoException;
 import br.com.unirn.poo.modelo.TipoUsuario;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorUsuario;

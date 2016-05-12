@@ -1,4 +1,4 @@
-package br.com.unirn.poo.expcetions;
+package br.com.unirn.poo.excecoes;
 
 public class CPFInvalidoException extends Exception {
 

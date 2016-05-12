@@ -1,7 +1,6 @@
 package br.com.unirn.poo.menu;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
@@ -10,7 +9,7 @@ import br.com.unirn.poo.util.SistemaAcademicoUtils;
  * @author felipe
  *
  */
-public class Menu {
+public class Menu extends MenuGeneric<Object> {
 
 	private static final int ID_MENU_CADASTRAR_USUARIO = 1;
 	private static final int ID_MENU_CADASTRAR_PROFESSOR = 2;
@@ -25,9 +24,16 @@ public class Menu {
 	private static final int ID_MENU_CADASTRAR_RESERVA = 11;
 	private static final int ID_MENU_SAIR = 12;
 
-	private static int opcao;
+	private int opcao;
+	
+	public Menu() {
+		super();
+		
+		montarMenu();
+	}
 
-	public static void montarMenuOpcoes() {
+	@Override
+	public void montarMenu() {
 		System.out.println("-----------------------------------------------------");
 		System.out.println("----------------- SISTEMA ACADÊMICO -----------------");
 		System.out.println("----------------------------------------------------- \n");
@@ -47,9 +53,14 @@ public class Menu {
 		listenerUsuario();
 	}
 
-	private static void listenerUsuario() {
-		Scanner scanner = new Scanner(System.in);
-
+	@Override
+	public void opcaoInvalida() {
+		System.out.println("\n Opção inválida. Tente novamente. \n");
+		SistemaAcademicoUtils.esperarSegundos();
+		montarMenu();
+	}
+	
+	private void listenerUsuario() {
 		System.out.println("Selecione uma opção: ");
 		try {
 			opcao = scanner.nextInt();
@@ -60,15 +71,12 @@ public class Menu {
 		switch (opcao) {
 		case ID_MENU_CADASTRAR_USUARIO:
 			new MenuUsuario();
-			scanner.close();
 			break;
 		case ID_MENU_CADASTRAR_PROFESSOR:
 			new MenuProfessor();
-			scanner.close();
 			break;
 		case ID_MENU_CADASTRAR_ALUNO:
 			new MenuAluno();
-			scanner.close();
 			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();
@@ -76,12 +84,6 @@ public class Menu {
 			opcaoInvalida();
 			break;
 		}
-	}
-
-	private static void opcaoInvalida() {
-		System.out.println("\n Opção inválida. Tente novamente. \n");
-		SistemaAcademicoUtils.esperarSegundos();
-		montarMenuOpcoes();
 	}
 
 }

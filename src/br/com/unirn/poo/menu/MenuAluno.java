@@ -2,7 +2,7 @@ package br.com.unirn.poo.menu;
 
 import java.util.Scanner;
 
-import br.com.unirn.poo.expcetions.CPFInvalidoException;
+import br.com.unirn.poo.excecoes.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Aluno;
 import br.com.unirn.poo.processadores.ProcessadorAluno;
 import br.com.unirn.poo.singleton.ListasSingleton;
