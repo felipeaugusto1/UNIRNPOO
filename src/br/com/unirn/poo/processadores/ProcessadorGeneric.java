@@ -3,13 +3,13 @@ package br.com.unirn.poo.processadores;
 import java.util.Collection;
 
 /**
- * Processador de qual todas as classes processadores devem extender.
+ * Interface processador de qual todas as classes processadores devem implementar.
  * 
  * @author allan
  *
  * @param <T>
  */
-public  abstract class ProcessadorGeneric<T> {
+public  interface ProcessadorGeneric<T> {
 	
 	public abstract void cadastrar (T obj, Collection<T> listaDeObjetos);
 	

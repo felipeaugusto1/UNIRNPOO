@@ -3,6 +3,7 @@ package br.com.unirn.poo.menu;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.unirn.poo.processadores.ProcessadorGeneric;
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
@@ -16,6 +17,7 @@ public abstract class MenuGeneric<T> {
 	 */
 	public Scanner scanner;
 	public List<T> lista;
+	public ProcessadorGeneric<T> processador;
 
 	public MenuGeneric() {
 		this.scanner = new Scanner(System.in);

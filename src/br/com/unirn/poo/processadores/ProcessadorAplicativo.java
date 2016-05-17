@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import br.com.unirn.poo.modelo.Aplicativo;
 
-public class ProcessadorAplicativo extends  ProcessadorGeneric<Aplicativo>{
+public class ProcessadorAplicativo implements  ProcessadorGeneric<Aplicativo>{
 
 	@Override
 	public void cadastrar(Aplicativo obj, Collection<Aplicativo> listaDeObjetos) {

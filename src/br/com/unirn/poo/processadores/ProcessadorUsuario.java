@@ -6,10 +6,7 @@ import br.com.unirn.poo.excecoes.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.util.ValidadorCPF;
 
-public class ProcessadorUsuario extends ProcessadorGeneric<Usuario> {
-
-	public ProcessadorUsuario() {
-	}
+public class ProcessadorUsuario implements ProcessadorGeneric<Usuario> {
 
 	@Override
 	public void cadastrar(Usuario obj, Collection<Usuario> listaDeObjetos) {

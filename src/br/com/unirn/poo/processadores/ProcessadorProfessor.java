@@ -6,7 +6,7 @@ import br.com.unirn.poo.excecoes.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.util.ValidadorCPF;
 
-public class ProcessadorProfessor extends ProcessadorGeneric<Professor> {
+public class ProcessadorProfessor implements ProcessadorGeneric<Professor> {
 
 	@Override
 	public void cadastrar(Professor obj, Collection<Professor> listaDeObjetos) {
