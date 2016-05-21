@@ -32,7 +32,13 @@ public class MenuHorario extends MenuGeneric<Horario> {
 		super();
 		processador = new ProcessadorHorario();
 
-		montarMenu();
+		if (ListasSingleton.getInstance().getListaTurma().isEmpty()) {
+			System.out.println("É necessário pelomenos uma turma cadastrada para cadastrar um horário.");
+			super.retornarMenuInicial();
+		} else
+			montarMenu();
+			
+		
 	}
 
 	@Override
@@ -46,8 +52,10 @@ public class MenuHorario extends MenuGeneric<Horario> {
 		horaFim = scanner.nextLine();
 
 		montarMenuTurno();
+		
+		montarMenuTurmas();
 
-		Horario horario = new Horario(new Turma(), turno, horaInicio, horaFim, diaSemana);
+		Horario horario = new Horario(turma, turno, horaInicio, horaFim, diaSemana);
 
 		try {
 			if (processador.validate(horario)) {
@@ -160,7 +168,24 @@ public class MenuHorario extends MenuGeneric<Horario> {
 	}
 
 	private void montarMenuTurmas() {
-
+		System.out.println("Selecione uma turma: ");
+		
+		int indice = 0;
+		for (Turma t : ListasSingleton.getInstance().getListaTurma()){
+			System.out.println(++indice + " - " +  t.getCodigo() + " - " +t.getDisciplina().getNome());
+		}
+		
+		
+		int opcao;
+		try {
+			opcao = scanner.nextInt();
+			turma = ListasSingleton.getInstance().getListaTurma().get(--opcao);
+		} catch (InputMismatchException e) {
+			scanner = new Scanner(System.in);
+			System.out.println("Turma inválida, tente novamente.");
+			montarMenuTurmas();
+		} 
+		
 	}
 
 }

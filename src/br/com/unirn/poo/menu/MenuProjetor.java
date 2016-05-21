@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import br.com.unirn.poo.modelo.Projetor;
 import br.com.unirn.poo.processadores.ProcessadorProjetor;
+import br.com.unirn.poo.singleton.ListasSingleton;
 
 /**
  * 
@@ -40,7 +41,7 @@ public class MenuProjetor extends MenuGeneric<Projetor> {
 
 		try {
 			if (processador.validate(projetor)) {
-				//processador.cadastrar(projetor, ListasSingleton.getInstance().getListaDisciplina());
+				processador.cadastrar(projetor, ListasSingleton.getInstance().getListaProjetor());
 
 				System.out.println("Projetor cadastrado com sucesso!");
 
