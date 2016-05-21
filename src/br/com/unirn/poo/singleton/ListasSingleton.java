@@ -7,6 +7,7 @@ import br.com.unirn.poo.modelo.Aluno;
 import br.com.unirn.poo.modelo.Disciplina;
 import br.com.unirn.poo.modelo.Horario;
 import br.com.unirn.poo.modelo.Professor;
+import br.com.unirn.poo.modelo.Turma;
 import br.com.unirn.poo.modelo.Usuario;
 
 /**
@@ -24,6 +25,7 @@ public class ListasSingleton {
 	private List<Aluno> listaAluno = new ArrayList<Aluno>();
 	private List<Disciplina> listaDisciplina = new ArrayList<Disciplina>();
 	private List<Horario> listaHorario = new ArrayList<Horario>();
+	private List<Turma> listaTurma = new ArrayList<Turma>();
 
 	private static ListasSingleton listasSingleton = null;
 
@@ -51,6 +53,10 @@ public class ListasSingleton {
 
 	public List<Horario> getListaHorario() {
 		return listaHorario;
+	}
+	
+	public List<Turma> getListaTurma() {
+		return listaTurma;
 	}
 
 }

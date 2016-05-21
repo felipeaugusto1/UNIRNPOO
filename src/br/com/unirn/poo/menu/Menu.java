@@ -84,6 +84,9 @@ public class Menu extends MenuGeneric<Object> {
 		case ID_MENU_CADASTRAR_HORARIO:
 			new MenuHorario();
 			break;
+		case ID_MENU_CADASTRAR_TURMA:
+			new MenuTurma();
+			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();
 		default:
