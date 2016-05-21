@@ -3,6 +3,7 @@ package br.com.unirn.poo.processadores;
 import java.util.Collection;
 
 import br.com.unirn.poo.modelo.Aplicativo;
+import br.com.unirn.poo.singleton.ListasSingleton;
 
 public class ProcessadorAplicativo implements  ProcessadorGeneric<Aplicativo>{
 
@@ -13,8 +14,9 @@ public class ProcessadorAplicativo implements  ProcessadorGeneric<Aplicativo>{
 
 	@Override
 	public boolean validate(Aplicativo obj) {
-		// TODO Auto-generated method stub
-		return true;
+		return ListasSingleton.getInstance().getListaAplicativo().stream().filter(
+				func -> func.getNome().equals(obj.getNome())
+				).count() == 0;
 	}
 
 }

@@ -88,6 +88,9 @@ public class Menu extends MenuGeneric<Object> {
 		case ID_MENU_CADASTRAR_PROJETOR:
 			new MenuProjetor();
 			break;
+		case ID_MENU_CADASTRAR_APLICATIVO:
+			new MenuAplicativo().montarMenu();
+			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();
 		default:
