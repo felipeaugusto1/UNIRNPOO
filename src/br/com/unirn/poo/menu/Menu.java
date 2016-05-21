@@ -78,6 +78,9 @@ public class Menu extends MenuGeneric<Object> {
 		case ID_MENU_CADASTRAR_ALUNO:
 			new MenuAluno();
 			break;
+		case ID_MENU_CADASTRAR_DISCIPLINA:
+			new MenuDisciplina();
+			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();
 		default:

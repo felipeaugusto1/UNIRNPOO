@@ -60,10 +60,12 @@ public class MenuAluno extends MenuGeneric<Aluno> {
 				scanner = new Scanner(System.in);
 				montarMenu();
 			}
-		} catch (CPFInvalidoException e) {
-			System.out.println(e.getMessage());
-			scanner = new Scanner(System.in);
-			montarMenu();
+		} catch (Exception e) {
+			if (e instanceof CPFInvalidoException) {
+				System.out.println(e.getMessage());
+				scanner = new Scanner(System.in);
+				montarMenu();
+			}
 		}
 
 	}
