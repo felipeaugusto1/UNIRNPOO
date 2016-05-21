@@ -2,7 +2,9 @@ package br.com.unirn.poo.util;
 
 import java.io.IOException;
 
-import br.com.unirn.poo.arquivo.Arquivo;
+import br.com.unirn.poo.dao.DAO;
+import br.com.unirn.poo.modelo.Usuario;
+import br.com.unirn.poo.singleton.ListasSingleton;
 
 /**
  * Classe que contém alguns métodos comuns ao projeto.
@@ -24,12 +26,8 @@ public class SistemaAcademicoUtils {
 	}
 	
 	public static void sairAplicacao() {
-		try {
-			Arquivo.salvarObjetos();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-
+		
+		ListasSingleton.getInstance().salvarObjetos();
 		System.out.println("Volte sempre!");
 		System.exit(0);
 	}
