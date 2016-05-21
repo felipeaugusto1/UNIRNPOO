@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class Usuario extends Pessoa {
+import java.io.Serializable;
 
+public class Usuario extends Pessoa implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5025987618864563678L;
 	private String login;
 	private String senha;
 	private TipoUsuario tipoUsuario;

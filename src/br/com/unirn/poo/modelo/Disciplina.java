@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class Disciplina {
+import java.io.Serializable;
 
+public class Disciplina implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 793876315367594414L;
 	private String nome;
 	private String sigla;
 

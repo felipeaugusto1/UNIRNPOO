@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class Projetor {
+import java.io.Serializable;
 
+public class Projetor implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3313072518388367758L;
 	private String marca;
 	private String modelo;
 	private String tombo;

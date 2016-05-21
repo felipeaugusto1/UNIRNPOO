@@ -14,8 +14,6 @@ import br.com.unirn.poo.singleton.ListasSingleton;
  */
 public class MenuAluno extends MenuGeneric<Aluno> {
 
-	private ProcessadorAluno processadorAluno;
-
 	private String nome;
 	private String cpf;
 	private String telefone;
@@ -24,7 +22,7 @@ public class MenuAluno extends MenuGeneric<Aluno> {
 
 	public MenuAluno() {
 		super();
-		processadorAluno = new ProcessadorAluno();
+		processador = new ProcessadorAluno();
 
 		montarMenu();
 	}
@@ -51,8 +49,8 @@ public class MenuAluno extends MenuGeneric<Aluno> {
 		Aluno aluno = new Aluno(nome, cpf, telefone, matricula, curso);
 
 		try {
-			if (processadorAluno.validate(aluno)) {
-				processadorAluno.cadastrar(aluno, ListasSingleton.getInstance().getListaAluno());
+			if (processador.validate(aluno)) {
+				processador.cadastrar(aluno, ListasSingleton.getInstance().getListaAluno());
 
 				System.out.println("Aluno cadastrado com sucesso!");
 

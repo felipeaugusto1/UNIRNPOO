@@ -1,9 +1,14 @@
 package br.com.unirn.poo.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Laboratorio extends LocalAula {
+public class Laboratorio extends LocalAula implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8902643219076425286L;
 	private String nome;
 	private Projetor projetor;
 	private List<Aplicativo> aplicativos;

@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class Horario {
+import java.io.Serializable;
 
+public class Horario implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4731334340337773085L;
 	private Turma turma;
 	private Turno turno;
 	private int horaInicio;

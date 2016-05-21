@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import br.com.unirn.poo.excecoes.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Professor;
-import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorProfessor;
 import br.com.unirn.poo.singleton.ListasSingleton;
 
@@ -13,9 +12,7 @@ import br.com.unirn.poo.singleton.ListasSingleton;
  * @author felipe
  *
  */
-public class MenuProfessor extends MenuGeneric<Usuario> {
-
-	private ProcessadorProfessor processadorProfessor;
+public class MenuProfessor extends MenuGeneric<Professor> {
 
 	private String nome;
 	private String cpf;
@@ -24,7 +21,7 @@ public class MenuProfessor extends MenuGeneric<Usuario> {
 
 	public MenuProfessor() {
 		super();
-		processadorProfessor = new ProcessadorProfessor();
+		processador = new ProcessadorProfessor();
 
 		montarMenu();
 	}
@@ -48,8 +45,8 @@ public class MenuProfessor extends MenuGeneric<Usuario> {
 		Professor professor = new Professor(nome, cpf, telefone, matricula);
 
 		try {
-			if (processadorProfessor.validate(professor)) {
-				processadorProfessor.cadastrar(professor, ListasSingleton.getInstance().getListaProfessor());
+			if (processador.validate(professor)) {
+				processador.cadastrar(professor, ListasSingleton.getInstance().getListaProfessor());
 
 				System.out.println("Professor cadastrado com sucesso!");
 

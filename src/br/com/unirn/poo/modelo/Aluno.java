@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class Aluno extends Pessoa {
+import java.io.Serializable;
 
+public class Aluno extends Pessoa implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9113839496640855265L;
 	private String matricula;
 	private String curso;
 

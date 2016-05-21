@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class LocalAula {
+import java.io.Serializable;
 
+public class LocalAula implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2857158367981949918L;
 	private String bloco;
 	private int capacidadeAlunos;
 

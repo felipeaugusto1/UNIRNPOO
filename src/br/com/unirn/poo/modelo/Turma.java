@@ -1,9 +1,15 @@
 package br.com.unirn.poo.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Turma {
+public class Turma implements Serializable {
 
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5411960718334881345L;
 	private int codigo;
 	private Disciplina disciplina;
 	private Reserva reserva;

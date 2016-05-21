@@ -17,8 +17,6 @@ import br.com.unirn.poo.util.SistemaAcademicoUtils;
  */
 public class MenuUsuario extends MenuGeneric<Usuario> {
 
-	private ProcessadorUsuario processadorUsuario;
-
 	private String nome;
 	private String cpf;
 	private String telefone;
@@ -28,7 +26,7 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 
 	public MenuUsuario() {
 		super();
-		processadorUsuario = new ProcessadorUsuario();
+		processador = new ProcessadorUsuario();
 
 		montarMenu();
 	}
@@ -57,8 +55,8 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 		Usuario usuario = new Usuario(nome, cpf, telefone, login, senha, tipoUsuario);
 		
 		try {
-			if (processadorUsuario.validate(usuario)) {
-				processadorUsuario.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
+			if (processador.validate(usuario)) {
+				processador.cadastrar(usuario, ListasSingleton.getInstance().getListaUsuario());
 				
 				System.out.println("Usuário cadastrado com sucesso!");
 

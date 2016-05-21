@@ -1,7 +1,13 @@
 package br.com.unirn.poo.modelo;
 
-public class Pessoa {
+import java.io.Serializable;
 
+public class Pessoa implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5352398112166541805L;
 	private String nome;
 	private String cpf;
 	private String telefone;

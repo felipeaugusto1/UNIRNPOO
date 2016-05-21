@@ -1,9 +1,14 @@
 package br.com.unirn.poo.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Reserva {
+public class Reserva implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8592930016275445789L;
 	private boolean usaProjetor;
 	private boolean ativo;
 	private Date data;
