@@ -44,7 +44,7 @@ public class ListasSingleton {
 			DAO<Aluno> alunoDao =  new DAO<Aluno>();
 			alunoDao.salvar(ListasSingleton.getInstance().getListaAluno(), Aluno.class);
 		} catch (IOException e){
-			
+			System.err.println(e.getMessage());
 		}
 	}
 	

@@ -16,10 +16,11 @@ import br.com.unirn.poo.singleton.ListasSingleton;
  */
 public class DAO <T>{
 	
-	private static final String  localArquivo = "/base_de_objetos/";
+	private static final String  localArquivo = "base_de_objetos/";
+	private static final String extensao = ".txt";
 
 	public void salvar (Collection<T> lista, Class<T> classe) throws IOException{
-		FileOutputStream file = new FileOutputStream(localArquivo + classe.getName());
+		FileOutputStream file = new FileOutputStream(localArquivo + classe.getName() + extensao);
 		ObjectOutputStream stream = new ObjectOutputStream(file);
 		stream.writeObject(lista);		
 		stream.flush();
@@ -27,7 +28,7 @@ public class DAO <T>{
 	}
 	
 	public void recuperar(Collection<T> lista, Class<T> classe) throws IOException, ClassNotFoundException{
-		FileInputStream file = new FileInputStream(localArquivo + classe.getName());
+		FileInputStream file = new FileInputStream(localArquivo + classe.getName() + extensao);
 		ObjectInputStream stream = new ObjectInputStream(file);
 		ArrayList<T> objetos = (ArrayList<T>) stream.readObject();		
 		for (T objeto : objetos){
