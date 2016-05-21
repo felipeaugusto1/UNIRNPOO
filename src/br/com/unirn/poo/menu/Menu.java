@@ -1,7 +1,6 @@
 package br.com.unirn.poo.menu;
 
 import java.util.InputMismatchException;
-
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
@@ -28,7 +27,6 @@ public class Menu extends MenuGeneric<Object> {
 	
 	public Menu() {
 		super();
-		
 		montarMenu();
 	}
 
