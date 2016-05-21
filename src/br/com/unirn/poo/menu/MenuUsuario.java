@@ -9,6 +9,7 @@ import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.processadores.ProcessadorUsuario;
 import br.com.unirn.poo.singleton.ListasSingleton;
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
+import br.com.unirn.poo.util.ValidadorCPF;
 
 /**
  * 
@@ -40,6 +41,11 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 
 		System.out.println("Informe o CPF do usuario (sem caracteres especiais): ");
 		cpf = scanner.nextLine();
+		
+		while (!ValidadorCPF.isCPF(cpf)) {
+			System.out.println("CPF Inválido. Informe novamente:");
+			cpf = scanner.nextLine();
+		}
 
 		System.out.println("Informe o telefone do usuario: ");
 		telefone = scanner.nextLine();

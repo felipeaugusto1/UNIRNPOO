@@ -6,6 +6,7 @@ import br.com.unirn.poo.excecoes.CPFInvalidoException;
 import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.processadores.ProcessadorProfessor;
 import br.com.unirn.poo.singleton.ListasSingleton;
+import br.com.unirn.poo.util.ValidadorCPF;
 
 /**
  * 
@@ -35,6 +36,11 @@ public class MenuProfessor extends MenuGeneric<Professor> {
 
 		System.out.println("Informe o CPF do professor (sem caracteres especiais): ");
 		cpf = scanner.nextLine();
+		
+		while (!ValidadorCPF.isCPF(cpf)) {
+			System.out.println("CPF Inválido. Informe novamente:");
+			cpf = scanner.nextLine();
+		}
 
 		System.out.println("Informe o telefone do professor: ");
 		telefone = scanner.nextLine();

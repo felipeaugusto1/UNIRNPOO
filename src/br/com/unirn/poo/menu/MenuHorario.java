@@ -3,6 +3,7 @@ package br.com.unirn.poo.menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import br.com.unirn.poo.excecoes.HorarioInvalidoException;
 import br.com.unirn.poo.modelo.DiaSemana;
 import br.com.unirn.poo.modelo.Horario;
 import br.com.unirn.poo.modelo.Turma;
@@ -20,7 +21,7 @@ public class MenuHorario extends MenuGeneric<Horario> {
 
 	private static boolean menu_turno_erro = false;
 	private static boolean menu_dia_semana_erro = false;
-	
+
 	private String horaInicio;
 	private String horaFim;
 	private DiaSemana diaSemana;
@@ -38,14 +39,14 @@ public class MenuHorario extends MenuGeneric<Horario> {
 	public void montarMenu() {
 		System.out.println("-------------------");
 
-		System.out.println("Informe a hora de início: ");
+		System.out.println("Informe a hora de início (ex: 08:00): ");
 		horaInicio = scanner.nextLine();
 
-		System.out.println("Informe a hora de término: ");
+		System.out.println("Informe a hora de término (ex: 08:40): ");
 		horaFim = scanner.nextLine();
-		
+
 		montarMenuTurno();
-		
+
 		Horario horario = new Horario(new Turma(), turno, horaInicio, horaFim, diaSemana);
 
 		try {
@@ -55,15 +56,17 @@ public class MenuHorario extends MenuGeneric<Horario> {
 				System.out.println("Disciplina cadastrada com sucesso!");
 
 				super.solicitarProximaAcao();
-			} else {
-				System.out.println("Informe todos os dados da disciplina.");
+			}
+		} catch (Exception e) {
+			if (e instanceof HorarioInvalidoException) {
+				System.out.println(e.getMessage());
+				scanner = new Scanner(System.in);
+				montarMenu();
+			} else if (e instanceof NumberFormatException) {
+				System.out.println("Horário inválido! Por favor, utilize somente números. Ex: 08:00");
 				scanner = new Scanner(System.in);
 				montarMenu();
 			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			scanner = new Scanner(System.in);
-			montarMenu();
 		}
 
 	}
@@ -73,13 +76,13 @@ public class MenuHorario extends MenuGeneric<Horario> {
 		System.out.println("\n Opção inválida. Tente novamente. \n");
 		SistemaAcademicoUtils.esperarSegundos();
 		scanner = new Scanner(System.in);
-		
+
 		if (menu_dia_semana_erro)
 			montarMenuDiaSemana();
 		else if (menu_turno_erro)
 			montarMenuTurno();
 	}
-	
+
 	private void montarMenuTurno() {
 		int turnoInformado = 0;
 
@@ -157,7 +160,7 @@ public class MenuHorario extends MenuGeneric<Horario> {
 	}
 
 	private void montarMenuTurmas() {
-		
+
 	}
-	
+
 }

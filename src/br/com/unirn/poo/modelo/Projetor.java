@@ -12,6 +12,13 @@ public class Projetor implements Serializable {
 	private String modelo;
 	private String tombo;
 
+	public Projetor(String marca, String modelo, String tombo) {
+		super();
+		this.marca = marca;
+		this.modelo = modelo;
+		this.tombo = tombo;
+	}
+
 	public String getMarca() {
 		return marca;
 	}

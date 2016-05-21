@@ -2,7 +2,6 @@ package br.com.unirn.poo.menu;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
