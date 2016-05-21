@@ -11,6 +11,12 @@ public class Disciplina implements Serializable {
 	private String nome;
 	private String sigla;
 
+	public Disciplina(String nome, String sigla) {
+		super();
+		this.nome = nome;
+		this.sigla = sigla;
+	}
+
 	public String getNome() {
 		return nome;
 	}

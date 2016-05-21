@@ -10,9 +10,18 @@ public class Horario implements Serializable {
 	private static final long serialVersionUID = -4731334340337773085L;
 	private Turma turma;
 	private Turno turno;
-	private int horaInicio;
-	private int horaFim;
+	private String horaInicio;
+	private String horaFim;
 	private DiaSemana diaSemana;
+
+	public Horario(Turma turma, Turno turno, String horaInicio, String horaFim, DiaSemana diaSemana) {
+		super();
+		this.turma = turma;
+		this.turno = turno;
+		this.horaInicio = horaInicio;
+		this.horaFim = horaFim;
+		this.diaSemana = diaSemana;
+	}
 
 	public Turma getTurma() {
 		return turma;
@@ -30,19 +39,19 @@ public class Horario implements Serializable {
 		this.turno = turno;
 	}
 
-	public int getHoraInicio() {
+	public String getHoraInicio() {
 		return horaInicio;
 	}
 
-	public void setHoraInicio(int horaInicio) {
+	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public int getHoraFim() {
+	public String getHoraFim() {
 		return horaFim;
 	}
 
-	public void setHoraFim(int horaFim) {
+	public void setHoraFim(String horaFim) {
 		this.horaFim = horaFim;
 	}
 
