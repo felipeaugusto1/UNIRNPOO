@@ -1,9 +1,5 @@
 package br.com.unirn.poo.util;
 
-import java.io.IOException;
-
-import br.com.unirn.poo.dao.DAO;
-import br.com.unirn.poo.modelo.Usuario;
 import br.com.unirn.poo.singleton.ListasSingleton;
 
 /**
