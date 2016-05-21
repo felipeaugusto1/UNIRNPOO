@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.unirn.poo.dao.DAO;
 import br.com.unirn.poo.modelo.Aluno;
+import br.com.unirn.poo.modelo.Aplicativo;
 import br.com.unirn.poo.modelo.Disciplina;
 import br.com.unirn.poo.modelo.Horario;
 import br.com.unirn.poo.modelo.Professor;
@@ -30,6 +31,7 @@ public class ListasSingleton {
 	private List<Horario> listaHorario = new ArrayList<Horario>();
 	private List<Turma> listaTurma = new ArrayList<Turma>();
 	private List<Projetor> listaProjetor = new ArrayList<Projetor>();
+	private List<Aplicativo> listaAplicativo = new ArrayList<Aplicativo>();
 
 	private static ListasSingleton listasSingleton = null;
 
@@ -104,6 +106,10 @@ public class ListasSingleton {
 
 	public List<Projetor> getListaProjetor() {
 		return listaProjetor;
+	}
+
+	public List<Aplicativo> getListaAplicativo() {
+		return listaAplicativo;
 	}
 
 }

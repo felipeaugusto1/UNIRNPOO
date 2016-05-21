@@ -18,6 +18,7 @@ public abstract class MenuGeneric<T> {
 	public Scanner scanner;
 	public List<T> lista;
 	public ProcessadorGeneric<T> processador;
+	public T obj;
 
 	public MenuGeneric() {
 		this.scanner = new Scanner(System.in);

@@ -8,14 +8,13 @@ public class ProcessadorAplicativo implements  ProcessadorGeneric<Aplicativo>{
 
 	@Override
 	public void cadastrar(Aplicativo obj, Collection<Aplicativo> listaDeObjetos) {
-		// TODO Auto-generated method stub
-		
+		listaDeObjetos.add(obj);
 	}
 
 	@Override
 	public boolean validate(Aplicativo obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
