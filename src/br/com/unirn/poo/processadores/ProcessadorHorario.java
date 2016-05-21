@@ -45,7 +45,7 @@ public class ProcessadorHorario implements ProcessadorGeneric<Horario> {
 				minutoHoraFimFim > MIN_INICIO_MAX || minutoHoraFimFim < MIN_INICIO_MIN) {
 			throw new HorarioInvalidoException("Horário inválido! Minutos permitidos apenas: de 00 a 59.");
 		} else if (c1.getTime() .after(c2.getTime())) {
-			throw new HorarioInvalidoException("Horário inválida! Hora inicial é posterior que hora final.");
+			throw new HorarioInvalidoException("Horário inválido! Hora inicial é posterior que hora final.");
 		} else if (obj.getHoraInicio().length() == 5 && obj.getHoraFim().length() == 5 && delimitadorHorarioInicio.equals(":") && delimitadorHorarioFim.equals(":")) {
 			return true;
 		} else {

@@ -54,6 +54,15 @@ public class ListasSingleton {
 
 			DAO<Aluno> alunoDao = new DAO<Aluno>();
 			alunoDao.salvar(ListasSingleton.getInstance().getListaAluno(), Aluno.class);
+			
+			DAO<Turma> turmaDao = new DAO<Turma>();
+			turmaDao.salvar(ListasSingleton.getInstance().getListaTurma(), Turma.class);
+			
+			DAO<Usuario> usuarioDao = new DAO<Usuario>();
+			usuarioDao.salvar(ListasSingleton.getInstance().getListaUsuario(), Usuario.class);
+			
+			DAO<Horario> horarioDao = new DAO<Horario>();
+			horarioDao.salvar(ListasSingleton.getInstance().getListaHorario(), Horario.class);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -73,6 +82,14 @@ public class ListasSingleton {
 			DAO<Aluno> alunoDao = new DAO<Aluno>();
 			alunoDao.recuperar(ListasSingleton.getInstance().getListaAluno(), Aluno.class);
 
+			DAO<Turma> turmaDao = new DAO<Turma>();
+			turmaDao.recuperar(ListasSingleton.getInstance().getListaTurma(), Turma.class);
+			
+			DAO<Usuario> usuarioDao = new DAO<Usuario>();
+			usuarioDao.recuperar(ListasSingleton.getInstance().getListaUsuario(), Usuario.class);
+			
+			DAO<Horario> horarioDao = new DAO<Horario>();
+			horarioDao.recuperar(ListasSingleton.getInstance().getListaHorario(), Horario.class);
 		} catch (IOException e) {
 
 		} catch (ClassNotFoundException e) {
