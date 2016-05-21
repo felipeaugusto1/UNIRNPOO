@@ -24,7 +24,7 @@ public class Menu extends MenuGeneric<Object> {
 	private static final int ID_MENU_SAIR = 12;
 
 	private int opcao;
-	
+
 	public Menu() {
 		super();
 		montarMenu();
@@ -57,7 +57,7 @@ public class Menu extends MenuGeneric<Object> {
 		SistemaAcademicoUtils.esperarSegundos();
 		montarMenu();
 	}
-	
+
 	private void listenerUsuario() {
 		System.out.println("Selecione uma opção: ");
 		try {

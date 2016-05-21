@@ -27,6 +27,7 @@ public abstract class MenuGeneric<T> {
 	public abstract void opcaoInvalida();
 
 	public void retornarMenuInicial() {
+		SistemaAcademicoUtils.esperarSegundos();
 		new Menu();
 	}
 

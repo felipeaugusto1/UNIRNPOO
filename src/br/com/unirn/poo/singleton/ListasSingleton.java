@@ -57,7 +57,7 @@ public class ListasSingleton {
 		}
 	}
 
-	public void recupearObjetos() {
+	public void recuperarObjetos() {
 		try {
 			DAO<Usuario> arquivoDao = new DAO<Usuario>();
 			arquivoDao.recuperar(ListasSingleton.getInstance().getListaUsuario(), Usuario.class);

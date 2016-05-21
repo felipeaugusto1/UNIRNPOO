@@ -6,7 +6,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import br.com.unirn.poo.singleton.ListasSingleton;
 
 /**
  * Classe para manipular arquivos que aramazenarão os dados gerado no sistema.
