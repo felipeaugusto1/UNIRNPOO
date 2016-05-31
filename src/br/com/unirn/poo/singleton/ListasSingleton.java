@@ -63,6 +63,9 @@ public class ListasSingleton {
 			
 			DAO<Horario> horarioDao = new DAO<Horario>();
 			horarioDao.salvar(ListasSingleton.getInstance().getListaHorario(), Horario.class);
+			
+			DAO<Aplicativo> aplicativoDao = new DAO<Aplicativo>();
+			aplicativoDao.salvar(ListasSingleton.getInstance().getListaAplicativo(), Aplicativo.class);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -90,6 +93,9 @@ public class ListasSingleton {
 			
 			DAO<Horario> horarioDao = new DAO<Horario>();
 			horarioDao.recuperar(ListasSingleton.getInstance().getListaHorario(), Horario.class);
+			
+			DAO<Aplicativo> aplicativoDao = new DAO<Aplicativo>();
+			aplicativoDao.recuperar(ListasSingleton.getInstance().getListaAplicativo(), Aplicativo.class);
 		} catch (IOException e) {
 
 		} catch (ClassNotFoundException e) {

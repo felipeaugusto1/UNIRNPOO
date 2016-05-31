@@ -35,4 +35,16 @@ public class DAO <T>{
 		}
 		stream.close();
 	}
+	
+	public void salvarObejto (T obj){
+		try{
+			FileOutputStream file = new FileOutputStream(localArquivo + obj.getClass().getName() + extensao);
+			ObjectOutputStream stream = new ObjectOutputStream(file);
+			stream.writeObject(obj);		
+			stream.flush();
+			stream.close();
+		}catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

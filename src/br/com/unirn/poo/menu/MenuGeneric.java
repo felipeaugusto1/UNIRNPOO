@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.com.unirn.poo.processadores.ProcessadorGeneric;
+import br.com.unirn.poo.singleton.ListasSingleton;
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
@@ -31,6 +32,12 @@ public abstract class MenuGeneric<T> {
 		SistemaAcademicoUtils.esperarSegundos();
 		new Menu();
 	}
+	
+	public static void sairAplicacao() {		
+		ListasSingleton.getInstance().salvarObjetos();
+		System.out.println("Volte sempre!");
+		System.exit(0);
+	}
 
 	public void solicitarProximaAcao() {
 		int opcao;
@@ -47,7 +54,7 @@ public abstract class MenuGeneric<T> {
 			retornarMenuInicial();
 			break;
 		case 2:
-			SistemaAcademicoUtils.sairAplicacao();
+			sairAplicacao();
 		default:
 			System.out.println("\n Opção inválida. Tente novamente. \n" );
 			SistemaAcademicoUtils.esperarSegundos();
