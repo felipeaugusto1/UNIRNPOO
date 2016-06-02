@@ -12,6 +12,11 @@ import br.com.unirn.poo.modelo.Turma;
 import br.com.unirn.poo.processadores.ProcessadorTurma;
 import br.com.unirn.poo.singleton.ListasSingleton;
 
+/**
+ * 
+ * @author ÍcaroCosta
+ *
+ */
 public class MenuTurma extends MenuGeneric<Turma> {
 	
 	private int codigo;

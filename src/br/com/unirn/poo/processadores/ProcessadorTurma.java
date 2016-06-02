@@ -4,6 +4,11 @@ import java.util.Collection;
 
 import br.com.unirn.poo.modelo.Turma;
 
+/**
+ * 
+ * @author ÍcaroCosta
+ *
+ */
 public class ProcessadorTurma implements ProcessadorGeneric<Turma>{
 
 	@Override
