@@ -2,6 +2,7 @@ package br.com.unirn.poo.singleton;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import br.com.unirn.poo.modelo.Horario;
 import br.com.unirn.poo.modelo.LocalAula;
 import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.modelo.Projetor;
+import br.com.unirn.poo.modelo.Reserva;
 import br.com.unirn.poo.modelo.Turma;
 import br.com.unirn.poo.modelo.Usuario;
 
@@ -34,7 +36,8 @@ public class ListasSingleton {
 	private List<Turma> listaTurma = new ArrayList<Turma>();
 	private List<Projetor> listaProjetor = new ArrayList<Projetor>();
 	private List<Aplicativo> listaAplicativo = new ArrayList<Aplicativo>();
-	private List<LocalAula> listaLocalAula = new ArrayList<LocalAula>();;
+	private List<LocalAula> listaLocalAula = new ArrayList<LocalAula>();
+	private List<Reserva> listaReserva = new ArrayList<Reserva>();
 
 	private static ListasSingleton listasSingleton = null;
 
@@ -72,6 +75,9 @@ public class ListasSingleton {
 			
 			DAO<LocalAula> localDao = new DAO<LocalAula>();
 			localDao.salvar(ListasSingleton.getInstance().getListaLocalAula(), LocalAula.class);
+			
+			DAO<Reserva> reservaDao = new DAO<Reserva>();
+			reservaDao.salvar(ListasSingleton.getInstance().getListaReserva(), Reserva.class);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -105,6 +111,9 @@ public class ListasSingleton {
 			
 			DAO<LocalAula> localDao = new DAO<LocalAula>();
 			localDao.recuperar(ListasSingleton.getInstance().getListaLocalAula(), LocalAula.class);
+			
+			DAO<Reserva> reservaDao = new DAO<Reserva>();
+			reservaDao.recuperar(ListasSingleton.getInstance().getListaReserva(), Reserva.class);
 		} catch (IOException e) {
 
 		} catch (ClassNotFoundException e) {
@@ -146,6 +155,10 @@ public class ListasSingleton {
 
 	public List<LocalAula> getListaLocalAula() {
 		return listaLocalAula;
+	}
+	
+	public List<Reserva> getListaReserva (){
+		return listaReserva;
 	}
 
 }

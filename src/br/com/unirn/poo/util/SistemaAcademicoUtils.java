@@ -1,5 +1,9 @@
 package br.com.unirn.poo.util;
 
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
 import br.com.unirn.poo.singleton.ListasSingleton;
 
 /**
@@ -26,6 +30,25 @@ public class SistemaAcademicoUtils {
 		ListasSingleton.getInstance().salvarObjetos();
 		System.out.println("Volte sempre!");
 		System.exit(0);
+	}
+	
+	public static <T> void clonarListaGeneric(List<T> origem, List<T> destino){
+		if (destino != null){
+			for (T t : destino) {
+				origem.add(t);
+			}
+		}
+	}
+	
+	public static int lerInteiro(Scanner scanner){
+		try {
+			int retorno = scanner.nextInt();
+			return retorno;
+		} catch (InputMismatchException e) {
+			scanner = new Scanner(System.in);
+			System.out.println("Número inválido, digite outra uma opção válida.");
+			return lerInteiro(scanner);
+		} 
 	}
 
 }

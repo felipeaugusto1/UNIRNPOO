@@ -98,6 +98,8 @@ public class Menu extends MenuGeneric<Object> {
 			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();
+		case ID_MENU_CADASTRAR_RESERVA:
+			new MenuReserva().montarMenu();
 		default:
 			opcaoInvalida();
 			break;
