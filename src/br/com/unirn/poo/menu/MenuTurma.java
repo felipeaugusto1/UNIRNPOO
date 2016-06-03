@@ -147,7 +147,9 @@ public class MenuTurma extends MenuGeneric<Turma> {
 				montarMenu();
 			}
 		} catch (Exception e) {
-			
+			System.out.println(e.getMessage());
+			scanner = new Scanner(System.in);
+			montarMenu();
 		}
 	}
 

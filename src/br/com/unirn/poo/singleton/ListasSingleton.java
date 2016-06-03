@@ -2,6 +2,7 @@ package br.com.unirn.poo.singleton;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import br.com.unirn.poo.dao.DAO;
@@ -9,6 +10,7 @@ import br.com.unirn.poo.modelo.Aluno;
 import br.com.unirn.poo.modelo.Aplicativo;
 import br.com.unirn.poo.modelo.Disciplina;
 import br.com.unirn.poo.modelo.Horario;
+import br.com.unirn.poo.modelo.LocalAula;
 import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.modelo.Projetor;
 import br.com.unirn.poo.modelo.Turma;
@@ -32,6 +34,7 @@ public class ListasSingleton {
 	private List<Turma> listaTurma = new ArrayList<Turma>();
 	private List<Projetor> listaProjetor = new ArrayList<Projetor>();
 	private List<Aplicativo> listaAplicativo = new ArrayList<Aplicativo>();
+	private List<LocalAula> listaLocalAula = new ArrayList<LocalAula>();;
 
 	private static ListasSingleton listasSingleton = null;
 
@@ -66,6 +69,9 @@ public class ListasSingleton {
 			
 			DAO<Aplicativo> aplicativoDao = new DAO<Aplicativo>();
 			aplicativoDao.salvar(ListasSingleton.getInstance().getListaAplicativo(), Aplicativo.class);
+			
+			DAO<LocalAula> localDao = new DAO<LocalAula>();
+			localDao.salvar(ListasSingleton.getInstance().getListaLocalAula(), LocalAula.class);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -96,6 +102,9 @@ public class ListasSingleton {
 			
 			DAO<Aplicativo> aplicativoDao = new DAO<Aplicativo>();
 			aplicativoDao.recuperar(ListasSingleton.getInstance().getListaAplicativo(), Aplicativo.class);
+			
+			DAO<LocalAula> localDao = new DAO<LocalAula>();
+			localDao.recuperar(ListasSingleton.getInstance().getListaLocalAula(), LocalAula.class);
 		} catch (IOException e) {
 
 		} catch (ClassNotFoundException e) {
@@ -133,6 +142,10 @@ public class ListasSingleton {
 
 	public List<Aplicativo> getListaAplicativo() {
 		return listaAplicativo;
+	}
+
+	public List<LocalAula> getListaLocalAula() {
+		return listaLocalAula;
 	}
 
 }
