@@ -15,6 +15,7 @@ public class Turma implements Serializable {
 	private Disciplina disciplina;
 	private List<Aluno> alunos;
 	private List<Professor> professores;
+	private Horario horario;
 	
 	public Turma(){
 		
@@ -59,4 +60,11 @@ public class Turma implements Serializable {
 		this.professores = professores;
 	}
 
+	public Horario getHorario() {
+		return horario;
+	}
+
+	public void setHorario(Horario horario) {
+		this.horario = horario;
+	}
 }
