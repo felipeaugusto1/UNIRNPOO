@@ -1,6 +1,9 @@
 package br.com.unirn.poo.menu;
 
 import java.util.InputMismatchException;
+
+import br.com.unirn.poo.modelo.TipoUsuario;
+import br.com.unirn.poo.singleton.UsuarioSingleton;
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
@@ -36,18 +39,41 @@ public class Menu extends MenuGeneric<Object> {
 		System.out.println("-----------------------------------------------------");
 		System.out.println("----------------- SISTEMA ACADÊMICO -----------------");
 		System.out.println("----------------------------------------------------- \n");
-		System.out.println(ID_MENU_CADASTRAR_USUARIO + " - Cadastrar Usuário");
-		System.out.println(ID_MENU_CADASTRAR_PROFESSOR + " - Cadastrar Professor");
-		System.out.println(ID_MENU_CADASTRAR_ALUNO + " - Cadastrar Aluno");
-		System.out.println(ID_MENU_CADASTRAR_DISCIPLINA + " - Cadastrar Disciplina");
-		System.out.println(ID_MENU_CADASTRAR_TURMA + " - Cadastrar Turma");
-		System.out.println(ID_MENU_CADASTRAR_HORARIO + " - Cadastrar Horário");
+		
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR)
+			System.out.println(ID_MENU_CADASTRAR_USUARIO + " - Cadastrar Usuário");
+		
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR) {
+			System.out.println(ID_MENU_CADASTRAR_PROFESSOR + " - Cadastrar Professor");
+			System.out.println(ID_MENU_CADASTRAR_ALUNO + " - Cadastrar Aluno");
+		}
+		
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.COORDENADOR) {
+			System.out.println(ID_MENU_CADASTRAR_TURMA + " - Cadastrar Turma");
+			System.out.println(ID_MENU_CADASTRAR_DISCIPLINA + " - Cadastrar Disciplina");
+		}
+		
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.COORDENADOR || 
+				UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR) {
+			System.out.println(ID_MENU_CADASTRAR_HORARIO + " - Cadastrar Horário");
+		}
+		
 		/*System.out.println(ID_MENU_CADASTRAR_SALA + " - Cadastrar Sala");
 		System.out.println(ID_MENU_CADASTRAR_LABORATORIO + " - Cadastrar Laboratório");*/
-		System.out.println(ID_MENU_CADASTRAR_LOCAL + " - Cadastrar Local de Aula");
-		System.out.println(ID_MENU_CADASTRAR_APLICATIVO + " - Cadastrar Aplicativo");
-		System.out.println(ID_MENU_CADASTRAR_PROJETOR + " - Cadastrar Projetor");
-		System.out.println(ID_MENU_CADASTRAR_RESERVA + " - Realizar Reserva");
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR) {
+			System.out.println(ID_MENU_CADASTRAR_LOCAL + " - Cadastrar Local de Aula");
+		}
+		
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR) {
+			System.out.println(ID_MENU_CADASTRAR_APLICATIVO + " - Cadastrar Aplicativo");
+			System.out.println(ID_MENU_CADASTRAR_PROJETOR + " - Cadastrar Projetor");
+		}
+		
+		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.SECRETARIO || 
+				UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.COORDENADOR) {
+			System.out.println(ID_MENU_CADASTRAR_RESERVA + " - Realizar Reserva");
+		}
+		
 		System.out.println(ID_MENU_SAIR + " - Sair");
 
 		listenerUsuario();

@@ -12,6 +12,10 @@ public class Pessoa implements Serializable {
 	private String cpf;
 	private String telefone;
 
+	public Pessoa() {
+		
+	}
+	
 	public Pessoa(String nome, String cpf, String telefone) {
 		super();
 		this.nome = nome;

@@ -30,7 +30,7 @@ public abstract class MenuGeneric<T> {
 
 	public void retornarMenuInicial() {
 		SistemaAcademicoUtils.esperarSegundos();
-		new Menu();
+		new MenuLogin();
 	}
 	
 	public static void sairAplicacao() {		

@@ -1,6 +1,7 @@
 package br.com.unirn.poo.main;
 
 import br.com.unirn.poo.menu.Menu;
+import br.com.unirn.poo.menu.MenuLogin;
 import br.com.unirn.poo.singleton.ListasSingleton;
 
 /**
@@ -13,7 +14,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ListasSingleton.getInstance().recuperarObjetos();
-		new Menu();
+		
+		//new Menu();
+		new MenuLogin();
 
 	}
 

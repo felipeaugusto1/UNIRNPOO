@@ -35,6 +35,8 @@ public class MenuUsuario extends MenuGeneric<Usuario> {
 	@Override
 	public void montarMenu() {
 		System.out.println("-------------------");
+		System.out.println("Cadastro de Usuario");
+		System.out.println("-------------------");
 
 		System.out.println("Informe o nome do usuario: ");
 		nome = scanner.nextLine();
