@@ -33,9 +33,9 @@ public class SistemaAcademicoUtils {
 	}
 	
 	public static <T> void clonarListaGeneric(List<T> origem, List<T> destino){
-		if (destino != null){
-			for (T t : destino) {
-				origem.add(t);
+		if (origem != null && destino != null){
+			for (T t : origem) {
+				destino.add(t);
 			}
 		}
 	}

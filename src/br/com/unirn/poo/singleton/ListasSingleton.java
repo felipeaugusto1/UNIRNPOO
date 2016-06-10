@@ -78,6 +78,9 @@ public class ListasSingleton {
 			
 			DAO<Reserva> reservaDao = new DAO<Reserva>();
 			reservaDao.salvar(ListasSingleton.getInstance().getListaReserva(), Reserva.class);
+			
+			DAO<Disciplina> disciplinaDao = new DAO<Disciplina>();
+			disciplinaDao.salvar(ListasSingleton.getInstance().getListaDisciplina(), Disciplina.class);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -114,6 +117,9 @@ public class ListasSingleton {
 			
 			DAO<Reserva> reservaDao = new DAO<Reserva>();
 			reservaDao.recuperar(ListasSingleton.getInstance().getListaReserva(), Reserva.class);
+			
+			DAO<Disciplina> disciplinaDao = new DAO<Disciplina>();
+			disciplinaDao.recuperar(ListasSingleton.getInstance().getListaDisciplina(), Disciplina.class);
 		} catch (IOException e) {
 
 		} catch (ClassNotFoundException e) {

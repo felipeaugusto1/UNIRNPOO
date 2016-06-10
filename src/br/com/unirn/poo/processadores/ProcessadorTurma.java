@@ -20,7 +20,8 @@ public class ProcessadorTurma implements ProcessadorGeneric<Turma>{
 	@Override
 	public boolean validate(Turma obj) throws Exception {
 		return (obj.getCodigo() > 0 && obj.getDisciplina() != null && obj.getProfessores() != null
-				&& !obj.getProfessores().isEmpty() && obj.getAlunos() != null && !obj.getAlunos().isEmpty());
+				&& !obj.getProfessores().isEmpty() && obj.getAlunos() != null && !obj.getAlunos().isEmpty()
+					&& obj.getHorario() != null);
 	}
 	
 	

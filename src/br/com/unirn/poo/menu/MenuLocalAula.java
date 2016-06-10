@@ -42,13 +42,13 @@ public class MenuLocalAula extends MenuGeneric<LocalAula> {
 		
 		apresentarOpcao(Aplicativo.class);
 		int opcaoEscolhida = lerInteiro();
-		validarEscolha(opcaoEscolhida, Aplicativo.class);
+		validarEscolha(opcaoEscolhida, Aplicativo.class, aplicativosSalvos);
 		if (opcaoEscolhida == SIM)
 			usaAplicativo = true;
 		
 		apresentarOpcao(Projetor.class);
 		opcaoEscolhida = lerInteiro();
-		validarEscolha(opcaoEscolhida, Projetor.class);
+		validarEscolha(opcaoEscolhida, Projetor.class, projetoresSalvos);
 		if (opcaoEscolhida == SIM)
 			usaProjetor = true;
 		
@@ -201,19 +201,19 @@ public class MenuLocalAula extends MenuGeneric<LocalAula> {
 		} 
 	}
 	
-	private <T> void  validarEscolha(int escolha, Class<T> classe){
+	private <T> void  validarEscolha(int escolha, Class<T> classe, List<T> lista){
 		String nomeClasse = classe.getName();
 		String[] divisoes = nomeClasse.split("\\.");
 		String nome = divisoes[divisoes.length-1];
 		if (escolha == SIM){
-			if (aplicativosSalvos.isEmpty()){
+			if (lista.isEmpty()){
 				System.out.println("É necessário que já tenha um " +  nome + " cadastrado para continuar.");
 				super.solicitarProximaAcao();
 			}
 		} else {
 			if (escolha > NAO){
 				System.out.println("Opção inválida. Tente de novo: ");
-				validarEscolha(lerInteiro(), classe);
+				validarEscolha(lerInteiro(), classe, lista);
 			}
 		}
 		scanner = new Scanner(System.in);

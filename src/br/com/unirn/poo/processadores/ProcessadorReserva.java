@@ -8,14 +8,13 @@ public class ProcessadorReserva implements ProcessadorGeneric<Reserva> {
 
 	@Override
 	public void cadastrar(Reserva obj, Collection<Reserva> listaDeObjetos) {
-		// TODO Auto-generated method stub
+		listaDeObjetos.add(obj);
 		
 	}
 
 	@Override
 	public boolean validate(Reserva obj) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+		return (obj.getLocalAula() != null || obj.getTurma() != null);
 	}
 
 }

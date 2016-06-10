@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import br.com.unirn.poo.modelo.Aluno;
 import br.com.unirn.poo.modelo.Disciplina;
+import br.com.unirn.poo.modelo.Horario;
 import br.com.unirn.poo.modelo.Professor;
 import br.com.unirn.poo.modelo.Turma;
 import br.com.unirn.poo.processadores.ProcessadorTurma;
@@ -21,6 +22,7 @@ public class MenuTurma extends MenuGeneric<Turma> {
 	
 	private int codigo;
 	private Disciplina disciplina;
+	private Horario horario;
 	private List<Aluno> alunos;
 	private List<Professor> professores;
 	
@@ -40,6 +42,12 @@ public class MenuTurma extends MenuGeneric<Turma> {
 			super.retornarMenuInicial();
 		}
 		
+		List<Horario> horarios = ListasSingleton.getInstance().getListaHorario();
+		if (horarios.isEmpty()){
+			System.out.println("É necessário que haja um horário para cadastrar turma.");
+			super.retornarMenuInicial();
+		}
+		
 		List<Professor> professoresSalvos = new ArrayList<Professor>();
 		clonarListaGeneric(professoresSalvos, ListasSingleton.getInstance().getListaProfessor());
 		if (professoresSalvos.isEmpty()){
@@ -56,7 +64,7 @@ public class MenuTurma extends MenuGeneric<Turma> {
 		
 		System.out.println("Informe o código da turma: ");
 		codigo = lerInteiro();
-
+		
 		System.out.println("Escolha uma disciplina pelo seu número: ");
 		
 		int indice = 0;
@@ -67,6 +75,16 @@ public class MenuTurma extends MenuGeneric<Turma> {
 		
 		int opcao = lerInteiro();
 		disciplina = ListasSingleton.getInstance().getListaDisciplina().get(--opcao);
+		
+		indice = 0;
+		for (Horario h : horarios){
+			System.out.println(++indice + " - De " +  h.getHoraInicio() + " as " + h.getHoraFim() 
+									+ ", dia da semana: " + h.getDiaSemana());
+		}
+		System.out.println();
+		
+		opcao = lerInteiro();
+		horario = ListasSingleton.getInstance().getListaHorario().get(--opcao);
 		
 		indice = 1;
 		System.out.println("Escolha um professor pelo número ou 0(zero) pra sair: ");
@@ -85,7 +103,7 @@ public class MenuTurma extends MenuGeneric<Turma> {
 			
 			if (opcao > (professoresSalvos.size()) || opcao < 0){
 				System.out.println("Opção inválida, tente um valor válido");
-				indice--;
+				indice = 1;
 				continue;
 			}
 			
@@ -97,6 +115,7 @@ public class MenuTurma extends MenuGeneric<Turma> {
 					System.out.println("Adicione pelo menos um professor");
 				}
 			}
+			indice = 1;
 			
 		} while (opcao != 0 && !professoresSalvos.isEmpty());
 		
@@ -117,7 +136,7 @@ public class MenuTurma extends MenuGeneric<Turma> {
 			
 			if (opcao > (alunosSalvos.size()) || opcao < 0){
 				System.out.println("Opção inválida, tente um valor válido");
-				indice--;
+				indice = 1;
 				continue;
 			}
 			
@@ -129,10 +148,17 @@ public class MenuTurma extends MenuGeneric<Turma> {
 					System.out.println("Adicione pelo menos um aluno");
 				}
 			}
+			indice = 1;
 			
 		} while (opcao != 0 && !alunosSalvos.isEmpty());
 		
 		Turma turma = new Turma(codigo, disciplina, alunos, professores);
+		turma.setHorario(horario);
+		
+		if (ListasSingleton.getInstance().getListaTurma().contains(turma)){
+			System.out.println("Já existe uma disciplina com esse código, tente novamente");
+			super.solicitarProximaAcao();
+		}
 		
 		try {
 			if (processador.validate(turma)) {

@@ -49,12 +49,22 @@ public class ReservaHelper {
 			}
 		}
 		
-		List<LocalAula> locaisNaoPermitidos = new ArrayList<LocalAula>();
-		for (Reserva r : ListasSingleton.getInstance().getListaReserva()){
-			if (r.getTurma().getHorario().equals(turma.getHorario()))
-				locaisNaoPermitidos.add(r.getLocalAula());
+		List<LocalAula> locaisNaoPermitidos = getLocaisNaoPermitidos(turma);
+		locais.removeAll(locaisNaoPermitidos);
+		
+		return locais;
+	}
+	
+	public static List<LocalAula> getSalasSemReserva (Turma turma){
+		List<LocalAula> locais = new ArrayList<LocalAula>();
+		for (LocalAula lc : ListasSingleton.getInstance().getListaLocalAula()){
+			if (lc instanceof Sala){
+				locais.add(lc);
+			}
 		}
 		
+		List<LocalAula> locaisNaoPermitidos = getLocaisNaoPermitidos(turma);
+		locais.removeAll(locaisNaoPermitidos);
 		
 		return locais;
 	}
@@ -84,5 +94,14 @@ public class ReservaHelper {
 		
 		
 		return null;
+	}
+	
+	public static List<LocalAula> getLocaisNaoPermitidos (Turma turma){
+		List<LocalAula> locaisNaoPermitidos = new ArrayList<LocalAula>();
+		for (Reserva r : ListasSingleton.getInstance().getListaReserva()){
+			if (r.getTurma().getHorario().equals(turma.getHorario()))
+				locaisNaoPermitidos.add(r.getLocalAula());
+		}
+		return locaisNaoPermitidos;
 	}
 }

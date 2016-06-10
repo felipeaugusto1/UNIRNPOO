@@ -2,7 +2,9 @@ package br.com.unirn.poo.menu;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import br.com.unirn.poo.helper.ReservaHelper;
 import br.com.unirn.poo.modelo.LocalAula;
@@ -55,6 +57,10 @@ public class MenuReserva extends MenuGeneric<Reserva>{
 			retornarMenuInicial();
 		}
 		
+		obj.setUsaProjetor(false);
+		obj.setData(new Date());
+		obj.setAtivo(true);
+		
 		//Lista as turmas e dá opção de escolher.
 		ReservaHelper.listarTurmas(turmasSemReserva);
 		idTurma = SistemaAcademicoUtils.lerInteiro(scanner) -1;		
@@ -68,14 +74,40 @@ public class MenuReserva extends MenuGeneric<Reserva>{
 		if (idLocal == 1){
 			locais = ReservaHelper.getLaboratoriosSemReserva(obj.getTurma());
 			if (locais.isEmpty()){
-				System.out.println("Sistema não possui laboratórios cadastrados");
+				System.out.println("Sistema não possui laboratórios disponíveis.");
+				super.retornarMenuInicial();
 			}
 		} else {
-			locais = ReservaHelper.getSalas();
+			locais = ReservaHelper.getSalasSemReserva(obj.getTurma());
+			if (locais.isEmpty()){
+				System.out.println("Sistema não possui salas disponíveis.");
+				super.retornarMenuInicial();
+			}
+			System.out.println("A sala usará projetor?");
+			System.out.println( " 1 - Sim ");
+			System.out.println( " 2 - Não ");
+			usaProjetor = SistemaAcademicoUtils.lerInteiro(scanner);
+			if (usaProjetor == 1){
+				obj.setUsaProjetor(true);
+			}
 		}
 		ReservaHelper.listarLocais(locais);
 		idLocal = SistemaAcademicoUtils.lerInteiro(scanner) -1;
 		obj.setLocalAula(locais.get(idLocal));
+		
+		try {
+			if (processador.validate(obj)) {
+				processador.cadastrar(obj, ListasSingleton.getInstance().getListaReserva());
+
+				System.out.println("Reserva cadastrada com sucesso!");
+				super.solicitarProximaAcao();
+			}
+		} catch(Exception e) {
+			System.out.println("Ocorreu um erro durante a operação, tente novamente.");
+			System.out.println(e.getMessage());
+			scanner = new Scanner(System.in);
+			montarMenu();
+		}
 	}
 
 	@Override
