@@ -1,6 +1,7 @@
 package br.com.unirn.poo.menu;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import br.com.unirn.poo.modelo.TipoUsuario;
 import br.com.unirn.poo.singleton.UsuarioSingleton;
@@ -19,13 +20,12 @@ public class Menu extends MenuGeneric<Object> {
 	private static final int ID_MENU_CADASTRAR_DISCIPLINA = 4;
 	private static final int ID_MENU_CADASTRAR_TURMA = 5;
 	private static final int ID_MENU_CADASTRAR_HORARIO = 6;
-	//private static final int ID_MENU_CADASTRAR_SALA = 7;
-	//private static final int ID_MENU_CADASTRAR_LABORATORIO = 8;
 	private static final int ID_MENU_CADASTRAR_LOCAL = 7;
 	private static final int ID_MENU_CADASTRAR_APLICATIVO = 9;
 	private static final int ID_MENU_CADASTRAR_PROJETOR = 10;
 	private static final int ID_MENU_CADASTRAR_RESERVA = 11;
-	private static final int ID_MENU_SAIR = 12;
+	private static final int ID_MENU_LISTAR = 12;
+	private static final int ID_MENU_SAIR = 13;
 
 	private int opcao;
 
@@ -40,10 +40,8 @@ public class Menu extends MenuGeneric<Object> {
 		System.out.println("----------------- SISTEMA ACADÊMICO -----------------");
 		System.out.println("----------------------------------------------------- \n");
 		
-		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR)
-			System.out.println(ID_MENU_CADASTRAR_USUARIO + " - Cadastrar Usuário");
-		
 		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR) {
+			System.out.println(ID_MENU_CADASTRAR_USUARIO + " - Cadastrar Usuário");
 			System.out.println(ID_MENU_CADASTRAR_PROFESSOR + " - Cadastrar Professor");
 			System.out.println(ID_MENU_CADASTRAR_ALUNO + " - Cadastrar Aluno");
 		}
@@ -58,8 +56,6 @@ public class Menu extends MenuGeneric<Object> {
 			System.out.println(ID_MENU_CADASTRAR_HORARIO + " - Cadastrar Horário");
 		}
 		
-		/*System.out.println(ID_MENU_CADASTRAR_SALA + " - Cadastrar Sala");
-		System.out.println(ID_MENU_CADASTRAR_LABORATORIO + " - Cadastrar Laboratório");*/
 		if (UsuarioSingleton.getInstance().getUsuario().getTipoUsuario() == TipoUsuario.ADMINISTRADOR) {
 			System.out.println(ID_MENU_CADASTRAR_LOCAL + " - Cadastrar Local de Aula");
 		}
@@ -74,6 +70,7 @@ public class Menu extends MenuGeneric<Object> {
 			System.out.println(ID_MENU_CADASTRAR_RESERVA + " - Realizar Reserva");
 		}
 		
+		System.out.println(ID_MENU_LISTAR + " - Listar dados");
 		System.out.println(ID_MENU_SAIR + " - Sair");
 
 		listenerUsuario();
@@ -83,6 +80,7 @@ public class Menu extends MenuGeneric<Object> {
 	public void opcaoInvalida() {
 		System.out.println("\n Opção inválida. Tente novamente. \n");
 		SistemaAcademicoUtils.esperarSegundos();
+		scanner = new Scanner(System.in);
 		montarMenu();
 	}
 
@@ -121,6 +119,9 @@ public class Menu extends MenuGeneric<Object> {
 			break;
 		case ID_MENU_CADASTRAR_LOCAL:
 			new MenuLocalAula().montarMenu();
+			break;
+		case ID_MENU_LISTAR:
+			new MenuListarObjetos();
 			break;
 		case ID_MENU_SAIR:
 			SistemaAcademicoUtils.sairAplicacao();

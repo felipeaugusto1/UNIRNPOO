@@ -23,4 +23,9 @@ public class Professor extends Pessoa implements Serializable {
 		this.matricula = matricula;
 	}
 
+	@Override
+	public String toString() {
+		return "Professor [matricula=" + matricula + "]";
+	}
+
 }

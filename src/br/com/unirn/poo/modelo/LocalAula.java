@@ -33,10 +33,10 @@ public class LocalAula implements Serializable {
 		int result = 1;
 		result = prime * result + ((bloco == null) ? 0 : bloco.hashCode());
 		result = prime * result + capacidadeAlunos;
-		if (this instanceof Sala){
+		if (this instanceof Sala) {
 			result += prime * result + (((Sala) this) == null ? 0 : ((Sala) this).getNumero());
 		}
-		if (this instanceof Laboratorio){
+		if (this instanceof Laboratorio) {
 			result += prime * result + (((Laboratorio) this) == null ? 0 : ((Laboratorio) this).getNome().hashCode());
 		}
 		return result;
@@ -58,23 +58,26 @@ public class LocalAula implements Serializable {
 			return false;
 		if (capacidadeAlunos != other.capacidadeAlunos)
 			return false;
-		if (this instanceof Sala){
+		if (this instanceof Sala) {
 			if (!(obj instanceof Sala))
 				return false;
 			else {
-				return ((Sala) this).getNumero() == ((Sala) obj).getNumero(); 
+				return ((Sala) this).getNumero() == ((Sala) obj).getNumero();
 			}
 		}
-		if (this instanceof Laboratorio){
+		if (this instanceof Laboratorio) {
 			if (!(obj instanceof Laboratorio))
 				return false;
 			else {
-				return ((Laboratorio) this).getNome().equals(((Laboratorio) obj).getNome()); 
+				return ((Laboratorio) this).getNome().equals(((Laboratorio) obj).getNome());
 			}
 		}
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "LocalAula [bloco=" + bloco + ", capacidadeAlunos=" + capacidadeAlunos + "]";
+	}
 
 }

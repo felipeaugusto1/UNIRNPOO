@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import br.com.unirn.poo.processadores.ProcessadorGeneric;
 import br.com.unirn.poo.singleton.ListasSingleton;
+import br.com.unirn.poo.singleton.UsuarioSingleton;
 import br.com.unirn.poo.util.SistemaAcademicoUtils;
 
 /**
@@ -35,6 +36,7 @@ public abstract class MenuGeneric<T> {
 	
 	public static void sairAplicacao() {		
 		ListasSingleton.getInstance().salvarObjetos();
+		UsuarioSingleton.getInstance().setUsuario(null);
 		System.out.println("Volte sempre!");
 		System.exit(0);
 	}

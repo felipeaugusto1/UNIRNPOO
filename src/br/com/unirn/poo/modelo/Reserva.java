@@ -55,4 +55,10 @@ public class Reserva implements Serializable {
 		this.localAula = localAula;
 	}
 
+	@Override
+	public String toString() {
+		return "Reserva [usaProjetor=" + usaProjetor + ", ativo=" + ativo + ", data=" + data + ", turma=" + turma
+				+ ", localAula=" + localAula + "]";
+	}
+
 }

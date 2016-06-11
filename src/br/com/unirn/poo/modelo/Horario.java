@@ -89,7 +89,11 @@ public class Horario implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Horario [turno=" + turno + ", horaInicio=" + horaInicio + ", horaFim=" + horaFim + ", diaSemana="
+				+ diaSemana + "]";
+	}
 
 }

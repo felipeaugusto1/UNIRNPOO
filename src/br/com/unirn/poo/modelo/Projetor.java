@@ -43,4 +43,9 @@ public class Projetor implements Serializable {
 		this.tombo = tombo;
 	}
 
+	@Override
+	public String toString() {
+		return "Projetor [marca=" + marca + ", modelo=" + modelo + ", tombo=" + tombo + "]";
+	}
+
 }

@@ -33,4 +33,9 @@ public class Disciplina implements Serializable {
 		this.sigla = sigla;
 	}
 
+	@Override
+	public String toString() {
+		return "Disciplina [nome=" + nome + ", sigla=" + sigla + "]";
+	}
+
 }

@@ -18,4 +18,9 @@ public class Aplicativo implements Serializable {
 		this.nome = nome;
 	}
 
+	@Override
+	public String toString() {
+		return "Aplicativo [nome=" + nome + "]";
+	}
+
 }

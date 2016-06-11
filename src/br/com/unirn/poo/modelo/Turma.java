@@ -1,12 +1,10 @@
 package br.com.unirn.poo.modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Turma implements Serializable {
 
-	
 	/**
 	 * 
 	 */
@@ -16,11 +14,11 @@ public class Turma implements Serializable {
 	private List<Aluno> alunos;
 	private List<Professor> professores;
 	private Horario horario;
-	
-	public Turma(){
-		
+
+	public Turma() {
+
 	}
-	
+
 	public Turma(int codigo, Disciplina disciplina, List<Aluno> alunos, List<Professor> professores) {
 		this.codigo = codigo;
 		this.disciplina = disciplina;
@@ -89,6 +87,11 @@ public class Turma implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Turma [codigo=" + codigo + ", disciplina=" + disciplina + ", alunos=" + alunos + ", professores="
+				+ professores + ", horario=" + horario + "]";
+	}
+
 }

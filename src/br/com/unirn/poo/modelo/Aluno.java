@@ -33,4 +33,9 @@ public class Aluno extends Pessoa implements Serializable {
 		this.curso = curso;
 	}
 
+	@Override
+	public String toString() {
+		return "Aluno [matricula=" + matricula + ", curso=" + curso + "]";
+	}
+
 }
